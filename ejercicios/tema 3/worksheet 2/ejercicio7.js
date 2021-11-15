@@ -10,7 +10,8 @@ function añadirUno(array)
 
 function añadirEspacios(array)
 {
-    return nuevoArray = array.map(numero => numero + " ");
+    return array.join(" ")
+    //return nuevoArray = array.map(numero => numero + " ");
 }
 
 array = [4,34,6,12,45,9,80,7,43,20];

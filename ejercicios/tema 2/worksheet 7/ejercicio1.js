@@ -10,7 +10,7 @@ function success(pos) {
 
     //creamos un mapa si la funcion success se incia
     var platform = new H.service.Platform({
-      'apikey': 'eN4uYtfh4iowecgluhfV9EqI5z2cEtIbyi0KVLLrbfs'
+      'apikey': 'ju8bagx3Ki_uZSYIjrKxeHL2N8T7Lrots5a2BdLUfDc'
     });
 
     // Obtain the default map types from the platform object:

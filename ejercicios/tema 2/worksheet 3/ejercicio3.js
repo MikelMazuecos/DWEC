@@ -1,11 +1,9 @@
-function subcadena(cadena)
+function localizarSubcadena(cadena,subcadena)
 {
-    let palabras = cadena.split(" ")
-    for (let palabra of palabras)
-    {
-        document.write(palabra)
-    }
+    if(cadena.includes(subcadena))
+        return subcadena
 }
 
 cadena = "algunas palabras continenen algun elemento que se repite con frecuencia"
-document.write(subcaden(cadena))
+subcadena = "elemento que se repite"
+document.write(localizarSubcadena(cadena,subcadena))

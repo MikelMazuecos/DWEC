@@ -15,9 +15,9 @@ numeroMayor = numeros.pop();
 palabras = ["hola","mundo","yo","murcielago","adios","si","donde","ordenador"];
 palabras.sort((a,b)=>{
     if(a.length>b.length)
-        return -1;
-    if(a.length>b.length)
         return 1;
+    if(a.length<b.length)
+        return -1;
     else
         return 0;
 })
