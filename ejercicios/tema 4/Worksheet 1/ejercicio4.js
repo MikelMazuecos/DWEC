@@ -18,10 +18,10 @@ function pintar(e){
 }
 
 function inicia() {
-   // const td = document.querySelectorAll('td');
-    //td.forEach((td)=>td.onmousemove = pintar)
+    const td = document.querySelectorAll('td');
+    td.forEach((td)=>td.onmousemove = pintar)
 
-    document.addEventListener('mousemove', pintar);
+   // document.addEventListener('mousemove', pintar);
 }
 
 window.addEventListener('load',inicia);

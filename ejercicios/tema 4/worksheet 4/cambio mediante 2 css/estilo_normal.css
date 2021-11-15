@@ -1,0 +1,22 @@
+body{
+    font-family: sans-serif;
+    background-color: rgb(255, 255, 204);
+}
+#negrita{
+    font-weight: bold;
+}
+
+#amarillo{
+    padding: 0px;
+    border: 1px black solid;
+    background-color: yellow;
+}
+
+#enlace{
+    border: solid 1px black;
+    background-color: lightgrey;
+}
+
+a{
+    text-decoration:none;
+}
