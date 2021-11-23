@@ -1,10 +1,10 @@
 class BookList{
-    constructor(read,notReadYet,next,current,last) {
-        this.readBooks = read;
-        this.notReadYet = notReadYet;
-        this.next = next;
-        this.current = current;
-        this.last = last;
+    constructor() {
+        this.readBooks = 0;
+        this.notReadYet = 0;
+        this.next = "";
+        this.current = "";
+        this.last = "";
         this.all = [];
     }
 
@@ -41,31 +41,25 @@ class Book{
     }
 }
 
-function crearLibro(){
-    new Book(document.getElementById("titulo"),document.getElementById("genero"),document.getElementById("autor"),
-    document.getElementById("leido"), new Book(document.getElementById("fecha")));
+function guardarLibro(e){
+    e.preventDefault()
+    titulo = document.getElementById("titulo").value;
+    genero = document.getElementById("genero").value;
+    autor = document.getElementById("autor").value;
+    leido = document.getElementById("leido").value;
+    fecha = document.getElementById("fecha").value;
+    libro = new Book(titulo,genero,autor,leido,fecha);
+    lista.add(libro);
+    let li = document.createElement("li");
+    li.innerHTML = lista.all[lista.all.length -1].title + " - "+lista.all[lista.all.length -1].author;
+    document.getElementById("lista").appendChild(li);    
 }
-
-function guardarLibro(){
-    lista.add(crearLibro);
-    document.getElementById("lista").innerHTML = lista.all;
-}
+var lista = new BookList;
 
 function inicia(){
-    var lista = new BookList(0,0,next="",current="",last="");
     document.getElementById("libro").addEventListener("click",guardarLibro);
 }
 
 window.addEventListener('load',inicia);
 
-/*libro0 = new Book("el señor de los anillos 0","fantasia","Tolkien",true, new Date());
-libro1 = new Book("el señor de los anillos 1","fantasia","Tolkien",false, new Date());
-libro2 = new Book("el señor de los anillos 2","fantasia","Tolkien",false, new Date());
-libro3 = new Book("el señor de los anillos 3","fantasia","Tolkien",false, new Date());
 
-lista = new BookList(1,2,libro2,libro1,libro0);
-
-lista.add(libro0);
-lista.add(libro1);
-lista.add(libro2);
-lista.add(libro3);*/
