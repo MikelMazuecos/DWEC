@@ -16,17 +16,15 @@ class Juego{
 
     resultado(){
         this.estado = "partida empezada";
-        p = document.createElement('p');
+        p = document.getElementById("resultado");
 
         if(jugadorPrimero.mano == jugadorSegundo.mano){
             p.innerHTML = "empate";
-            document.getElementById("resultado").appendChild(p);
         }
         else if((jugadorPrimero.mano == "piedra" && jugadorSegundo.mano == "papel") || 
                 (jugadorPrimero.mano == "tijera" && jugadorSegundo.mano == "piedra") || 
                 (jugadorPrimero.mano == "papel" && jugadorSegundo.mano == "tijera")){
             p.innerHTML = "gana " + jugadorSegundo.nombre;
-            document.getElementById("resultado").appendChild(p);
             jugadorSegundo.victorias += 1;
             jugadorPrimero.derrotas += 1;
             document.getElementById("1").innerHTML = jugadorPrimero.nombre.bold() + " => Victorias: " + jugadorPrimero.victorias + " | " + "Derrotas: " + jugadorPrimero.derrotas
@@ -37,7 +35,6 @@ class Juego{
                     (jugadorPrimero.mano == "tijera" && jugadorSegundo.mano == "papel") || 
                     (jugadorPrimero.mano == "papel" && jugadorSegundo.mano == "piedra")){
                 p.innerHTML = "gana " + jugadorPrimero.nombre;
-                document.getElementById("resultado").appendChild(p);
                 jugadorPrimero.victorias += 1;
                 jugadorSegundo.derrotas += 1;
                 document.getElementById("1").innerHTML = jugadorPrimero.nombre.bold() + " => Victorias: " + jugadorPrimero.victorias + " | " + "Derrotas: " + jugadorPrimero.derrotas
