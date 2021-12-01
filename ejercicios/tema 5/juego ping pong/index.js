@@ -26,7 +26,7 @@ window.onload = () =>
 {
     svg = document.getElementById("panel");
 
-    bola1 = new bola(25, 400, 400, 10, 10);
+    bola1 = new bola(25, 600, 600, 10, 10);
     bola_moviendo = new interfaz_bola(bola1,'black',svg)
 
     barra1 = new barra(10,200,30,100)

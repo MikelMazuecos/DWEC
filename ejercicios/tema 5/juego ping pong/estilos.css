@@ -5,3 +5,29 @@
 H1, h2{
     text-align: center;
 }
+
+body{
+    background-color: grey;
+}
+
+svg{
+    background-color: white;
+}
+
+div{
+    background-color: orange;
+}
+
+#iz{
+    position: relative;
+    bottom: -100px;
+    width: 200px;
+    left: 50px;
+}
+
+#der{
+    position: relative;
+    bottom: 50px;
+    width: 200px;
+    left: 1130px;
+}
