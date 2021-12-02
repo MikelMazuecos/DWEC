@@ -40,6 +40,7 @@ window.onload = () =>
     document.getElementById("velocidad1").addEventListener('click',velocidadLenta)
     document.getElementById("velocidad2").addEventListener('click',velocidadMedia)
     document.getElementById("velocidad3").addEventListener('click',velocidadRapida)
+    document.getElementById("pausa").addEventListener('click',pausar)
 
     elId = window.requestAnimationFrame(loop);
 }
@@ -93,16 +94,74 @@ function moverBarra(e) {
 }
 
 function velocidadLenta() {
-    bola1.vX = 6
-    bola1.vY = 6
+    if(bola1.vX >= 0){
+        if(bola1.vY >=0){
+            bola1.vX = 6
+            bola1.vY = 6
+        }
+        else{
+            bola1.vX = 6
+            bola1.vY = -6
+        }
+    }
+    else{        
+        if(bola1.vY >=0){
+            bola1.vX = -6
+            bola1.vY = 6
+    }else{
+        bola1.vX = -6
+        bola1.vY = -6
+        }
+    }
 }
 
 function velocidadMedia() {
-    bola1.vX = 10
-    bola1.vY = 10
+
+    if(bola1.vX >= 0){
+        if(bola1.vY >=0){
+            bola1.vX = 10
+            bola1.vY = 10
+        }
+        else{
+            bola1.vX = 10
+            bola1.vY = -10
+        }
+    }
+    else{        
+        if(bola1.vY >=0){
+            bola1.vX = -10
+            bola1.vY = 10
+    }else{
+        bola1.vX = -10
+        bola1.vY = -10
+        }
+    }
 }
 
 function velocidadRapida() {
-    bola1.vX = 14
-    bola1.vY = 14
+
+    if(bola1.vX >= 0){
+        if(bola1.vY >=0){
+            bola1.vX = 14
+            bola1.vY = 14
+        }
+        else{
+            bola1.vX = 14
+            bola1.vY = -14
+        }
+    }
+    else{        
+        if(bola1.vY >=0){
+            bola1.vX = -14
+            bola1.vY = 14
+    }else{
+        bola1.vX = -14
+        bola1.vY = -14
+        }
+    }
+}
+
+function pausar() {
+    bola1.vX = 0
+    bola1.vY = 0
 }
