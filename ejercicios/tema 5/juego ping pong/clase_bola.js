@@ -24,18 +24,14 @@ export class bola{
         
         // Comprobamos ahora si está fuera de los límites
         // Eje X
-        if (this.x<=0)
-        {
-            this.marcadorIz += 1
+        if (this.x<=0){
             this.reset();
-            document.getElementById("marcador").innerHTML = `${this.marcadorDe} : ${this.marcadorIz}`
-
+            return 'I'
         }
 
         if(this.x >= anchoContenedor){
-            this.marcadorDe += 1
             this.reset();
-            document.getElementById("marcador").innerHTML = `${this.marcadorDe} : ${this.marcadorIz}`
+            return 'D'
         }
         
         // Eje Y

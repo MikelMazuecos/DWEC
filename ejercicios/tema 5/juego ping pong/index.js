@@ -21,12 +21,13 @@ var barra1;
 var barra2;
 var barra_moviendose1;
 var barra_moviendose2;
+var movimiento;
 
 window.onload = () =>
 {
     svg = document.getElementById("panel");
 
-    bola1 = new bola(25, 600, 600, 10, 10);
+    bola1 = new bola(25, 670, 250, 0, 0);
     bola_moviendo = new interfaz_bola(bola1,'black',svg)
 
     barra1 = new barra(10,200,30,100)
@@ -36,6 +37,9 @@ window.onload = () =>
     barra_moviendose2 = new interfaz_barra(barra2,svg)
 
     window.addEventListener('keydown',moverBarra)
+    document.getElementById("velocidad1").addEventListener('click',velocidadLenta)
+    document.getElementById("velocidad2").addEventListener('click',velocidadMedia)
+    document.getElementById("velocidad3").addEventListener('click',velocidadRapida)
 
     elId = window.requestAnimationFrame(loop);
 }
@@ -44,13 +48,24 @@ function loop()
   {
     tamanoSVG = svg.getBoundingClientRect();
 
-    bola_moviendo.bola.mueve(tamanoSVG.width, tamanoSVG.height,barra1,barra2);
+    movimiento = bola_moviendo.bola.mueve(tamanoSVG.width, tamanoSVG.height,barra1,barra2);
+
     bola1.chocaDerecha(barra2)
     bola1.chocaIzquierda(barra1)
     bola_moviendo.dibuja()
 
     barra_moviendose1.dibuja()
     barra_moviendose2.dibuja()
+
+    if(movimiento == 'I'){
+        document.getElementById("marcador").innerHTML = `${bola1.marcadorDe} : ${bola1.marcadorIz}`
+        bola1.marcadorIz += 1
+    }
+
+    if(movimiento == 'D'){
+        document.getElementById("marcador").innerHTML = `${bola1.marcadorDe} : ${bola1.marcadorIz}`
+        bola1.marcadorDe += 1
+    }
 
     elId = window.requestAnimationFrame(loop);
 }
@@ -75,4 +90,19 @@ function moverBarra(e) {
         barra1.mueve(tamanoSVG.height, barra1.velocidad)
         barra_moviendose1.dibuja()
     }
+}
+
+function velocidadLenta() {
+    bola1.vX = 6
+    bola1.vY = 6
+}
+
+function velocidadMedia() {
+    bola1.vX = 10
+    bola1.vY = 10
+}
+
+function velocidadRapida() {
+    bola1.vX = 14
+    bola1.vY = 14
 }
