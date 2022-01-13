@@ -42,6 +42,7 @@ class Book{
 }
 
 function guardarLibro(e){
+    
     e.preventDefault()
     titulo = document.getElementById("titulo").value;
     genero = document.getElementById("genero").value;
@@ -50,14 +51,36 @@ function guardarLibro(e){
     fecha = document.getElementById("fecha").value;
     libro = new Book(titulo,genero,autor,leido,fecha);
     lista.add(libro);
+ 
     let li = document.createElement("li");
     li.innerHTML = lista.all[lista.all.length -1].title + " - "+lista.all[lista.all.length -1].author;
-    document.getElementById("lista").appendChild(li);    
+    document.getElementById("lista").appendChild(li); 
+    
+    localStorage.setItem("lista_libros",JSON.stringify(lista.all))
 }
 var lista = new BookList;
 
 function inicia(){
     document.getElementById("libro").addEventListener("click",guardarLibro);
+
+    if(localStorage.lista_libros){
+        let listaEnMemoria = JSON.parse(localStorage.lista_libros)
+
+        for (libro of listaEnMemoria)
+        {     
+            let li = document.createElement("li");
+            li.innerHTML = libro.title + " - "+libro.author;
+            document.getElementById("lista").appendChild(li); 
+        }
+    }
+
+    libroJson = {
+        "titulo":"Quijote",
+        "genero":"caballeresco",
+        "autor":"Cervantes",
+        "leido":"si",
+        "fecha":"27/10/2020"
+    }
 }
 
 window.addEventListener('load',inicia);
